@@ -528,10 +528,18 @@
     
     /* Responsive Aside Card */
     @media (max-width: 768px) {
+      .grid.md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .grid.md\:grid-cols-3 .col-span-2 {
+        grid-column: span 1;
+      }
+      
       .aside-card {
         width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
       }
     }
     
@@ -557,6 +565,12 @@
       
       .aside-card .space-y-3 > div {
         gap: 0.5rem;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      
+      .aside-card .space-y-3 > div p {
+        text-align: left;
       }
       
       .aside-card .text-sm {
