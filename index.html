@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>INRA EXPO 2025 — Indonesia Ramadhan Expo</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --tosca-dark: #0f766e;
+      --accent-orange: #ff7a18;
+      --soft-orange: #ff944d;
+    }
+
+    body { font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white text-slate-800">
+
+  <!-- NAV -->
+  <header class="w-full bg-[var(--tosca-dark)] text-white">
+    <nav class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="./img/Picture10.png" class="w-20 h-20 object-contain">
+        <div>
+          <div class="text-xl font-semibold">INRA EXPO 2025</div>
+          <div class="text-xs text-white/70 -mt-1">Indonesia Ramadhan Expo — Smesco Convention Hall</div>
+        </div>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-6">
+        <a class="hover:underline" href="#visi">Visi</a>
+        <a class="hover:underline" href="#tujuan">Tujuan</a>
+        <a class="hover:underline" href="#acara">Rangkaian Acara</a>
+        <a class="hover:underline" href="#kontak">Kontak</a>
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div class="md:hidden relative">
+        <button id="menu-btn" class="px-3 py-2 border border-white rounded-md">☰</button>
+        <div id="menu-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white text-[var(--tosca-dark)] rounded-md shadow-lg z-50">
+          <a class="block px-4 py-2 hover:bg-slate-100" href="#visi">Visi</a>
+          <a class="block px-4 py-2 hover:bg-slate-100" href="#tujuan">Tujuan</a>
+          <a class="block px-4 py-2 hover:bg-slate-100" href="#acara">Rangkaian Acara</a>
+          <a class="block px-4 py-2 hover:bg-slate-100" href="#kontak">Kontak</a>
+          <a href="#" class="block px-4 py-2 bg-[var(--accent-orange)] text-white font-medium rounded-b-md">Daftar</a>
+        </div>
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#" class="px-4 py-2 rounded-md bg-[var(--accent-orange)] text-white font-medium shadow">Daftar</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="w-full border-y-4 border-[var(--accent-orange)] fade-in bg-[url('./img/Picture9.png')] bg-cover">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-10 ">
+      <div class="flex-1">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight text-white">INRA EXPO 2025</h1>
+        <p class="mt-4 text-lg text-white max-w-xl">
+          Momentum Bersejarah untuk Umat Islam Indonesia — pameran multiproduk, kuliner halal, fashion muslim, dan industri kreatif.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="#acara" class="px-6 py-3 rounded-md bg-[var(--accent-orange)] text-white font-semibold shadow">Lihat Rangkaian Acara</a>
+          <a href="#tujuan" class="px-6 py-3 rounded-md bg-white border-[var(--tosca-dark)] text-[var(--tosca-dark)]">Tujuan Strategis</a>
+        </div>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-sm">
+          <div class="p-3 rounded-lg bg-[var(--accent-orange)] text-white">
+            <div class="text-sm">Tanggal</div>
+            <div class="font-semibold text-lg">4-8 Maret 2025</div>
+          </div>
+          <div class="p-3 rounded-lg bg-[var(--accent-orange)] text-white">
+            <div class="text-sm">Tempat</div>
+            <div class="font-semibold text-lg">Smesco Convention Hall, Jakarta</div>
+          </div>
+          <div class="p-3 rounded-lg bg-[var(--accent-orange)] text-white">
+            <div class="text-sm">Target</div>
+            <div class="font-semibold text-lg">30K Pengunjung</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 max-w-md p-6">
+        <div class="rounded-2xl overflow-hidden shadow-xl p-6 border-2 border-[var(--tosca-dark)] bg-white">
+          <div class="h-48 rounded-xl bg-[url('./img/Picture3.png')] bg-cover bg-center flex items-center justify-center">
+            <div class="text-center">
+              <div class="text-black font-bold text-2xl">Momentum Bersejarah</div>
+              <p class="mt-2 text-black/90">Menuju Indonesia International Muslim Fair 2026</p>
+            </div>
+          </div>
+          <div class="mt-5 grid grid-cols-1 gap-3">
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-slate-600">Tenant Pameran</div>
+              <div class="font-semibold text-[var(--accent-orange)]">250</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-slate-600">Hari Acara</div>
+              <div class="font-semibold text-[var(--accent-orange)]">5 Hari</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-slate-600">Fokus</div>
+              <div class="font-semibold text-[var(--tosca-dark)]">Halal • UMKM • Budaya</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISI -->
+  <section id="visi" class="max-w-6xl mx-auto px-6 py-10 fade-in">
+  <div class="grid md:grid-cols-3 gap-6 items-start">
+    <!-- MAIN CONTENT -->
+    <div class="col-span-2">
+      <div class="p-6 rounded-2xl bg-[var(--accent-orange)] text-white bg-[url('./img/Picture2.png')] bg-cover bg-left md:bg-center">
+        <div class="p-4 rounded-lg bg-white text-[var(--tosca-dark)] bg-opacity-80">
+          <h2 class="text-2xl font-semibold">Visi Besar</h2>
+        </div>
+        <div class="p-4 rounded-lg bg-white text-[var(--tosca-dark)] bg-opacity-80">
+          <p class="text-black">
+            Menuju Indonesia International Muslim Fair 2026 — Pameran multiproduk, kuliner halal, fashion muslim, dan industri kreatif sebagai fondasi kuat menuju acara yang lebih besar.
+          </p>
+        </div>
+        <div class="mt-5 grid sm:grid-cols-3 gap-4">
+          <div class="p-4 rounded-lg bg-white text-[var(--tosca-dark)] bg-opacity-80">
+            <div class="font-semibold">01</div>
+            <div class="text-sm mt-1">INRA EXPO 2025</div>
+          </div>
+          <div class="p-4 rounded-lg bg-white text-[var(--tosca-dark)] bg-opacity-80">
+            <div class="font-semibold">02</div>
+            <div class="text-sm mt-1">Kolaborasi Organisasi</div>
+          </div>
+          <div class="p-4 rounded-lg bg-white text-[var(--tosca-dark)] bg-opacity-80">
+            <div class="font-semibold">03</div>
+            <div class="text-sm mt-1">IIMF 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ASIDE CARD -->
+    <aside
+  class="p-6 rounded-2xl border-2 border-[var(--accent-orange)] bg-white flex flex-col items-center text-center md:items-start md:text-left md:w-auto max-w-md mx-auto md:mx-0 transition-all duration-300">
+  <h3 class="font-semibold text-[var(--tosca-dark)] text-lg md:text-xl">Tantangan & Peluang</h3>
+  <p class="mt-4 text-slate-600 text-sm md:text-base leading-relaxed">
+    Memperkuat literasi keislaman, memperluas jejaring internasional, dan membangun industri halal yang kompetitif di kancah global.
+  </p>
+  <div class="mt-5">
+    <a
+      class="inline-block px-5 py-2.5 rounded-md bg-[var(--accent-orange)] text-white font-medium hover:opacity-90 transition"
+      href="#kontak"
+    >
+      Hubungi Panitia
+    </a>
+    </div>
+  </aside>
+  </div>
+</section>
+
+
+  <!-- TUJUAN -->
+  <section id="tujuan" class="max-w-6xl mx-auto px-6 py-10 fade-in">
+    <h2 class="text-2xl font-semibold mb-4">5 Tujuan Strategis</h2>
+    <div class="grid md:grid-cols-5 gap-4">
+      <div class="p-5 rounded-xl bg-[var(--accent-orange)] text-white">
+        <div class="text-lg font-semibold">Daya Saing Ekonomi Umat</div>
+        <p class="text-slate-600 text-sm mt-2">Promosi produk halal, fashion, kuliner, dan UMKM.</p>
+      </div>
+      <div class="p-5 rounded-xl bg-[var(--accent-orange)] text-white">
+        <div class="text-lg font-semibold">Persiapan IIMF 2026</div>
+        <p class="text-slate-600 text-sm mt-2">Pra-event strategis dan fondasi pengalaman.</p>
+      </div>
+      <div class="p-5 rounded-xl bg-[var(--accent-orange)] text-white">
+        <div class="text-lg font-semibold">Jejaring Organisasi</div>
+        <p class="text-slate-600 text-sm mt-2">Kolaborasi nasional & internasional.</p>
+      </div>
+      <div class="p-5 rounded-xl bg-[var(--accent-orange)] text-white">
+        <div class="text-lg font-semibold">Literasi & Edukasi</div>
+        <p class="text-slate-600 text-sm mt-2">Seminar, talkshow, kajian, bedah buku.</p>
+      </div>
+      <div class="p-5 rounded-xl bg-[var(--accent-orange)] text-white">
+        <div class="text-lg font-semibold">Diplomasi Peradaban</div>
+        <p class="text-slate-600 text-sm mt-2">Perkuat peran Indonesia di kancah dunia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACARA -->
+  <section id="acara" class="max-w-6xl mx-auto px-6 py-10 fade-in">
+    <h2 class="text-2xl font-semibold mb-6">Rangkaian Acara Utama</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">Opening Ceremony & Tabligh Akbar</h3>
+        <p class="text-slate-600 text-sm mt-2">Pembukaan resmi oleh pejabat negara dan tabligh akbar bersama ulama.</p>
+      </article>
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">Pameran & Bazaar Ramadhan</h3>
+        <p class="text-slate-600 text-sm mt-2">Fashion muslim, produk halal, buku, dan UMKM berkualitas.</p>
+      </article>
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">International Halal Forum</h3>
+        <p class="text-slate-600 text-sm mt-2">Seminar internasional industri halal bersama akademisi & praktisi.</p>
+      </article>
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">Talkshow & Workshop</h3>
+        <p class="text-slate-600 text-sm mt-2">Ekonomi syariah, peran pemuda, literasi keuangan.</p>
+      </article>
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">Lomba & Pertunjukan Islami</h3>
+        <p class="text-slate-600 text-sm mt-2">MTQ, nasyid, hadrah, konten kreatif Islami.</p>
+      </article>
+      <article class="p-6 rounded-xl bg-white border-2 border-[var(--accent-orange)]">
+        <h3 class="font-semibold text-[var(--tosca-dark)]">Charity Program</h3>
+        <p class="text-slate-600 text-sm mt-2">Donasi untuk anak yatim & kegiatan berbagi sahur & ifthar.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TARGET & STATS -->
+  <section class="max-w-6xl mx-auto px-6 py-10 fade-in">
+  <div class="grid md:grid-cols-3 gap-6 items-stretch">
+    
+    <!-- Box Utama -->
+    <div class="col-span-2 p-6 rounded-2xl bg-[var(--accent-orange)] text-white fade-in delay-100">
+      <h3 class="text-xl font-semibold">Target & Skala Acara</h3>
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="p-4 rounded-lg bg-white text-center text-[var(--tosca-dark)] fade-in delay-200">
+          <div class="text-3xl font-bold">250</div>
+          <div class="text-sm mt-1">Tenant Pameran</div>
+        </div>
+        <div class="p-4 rounded-lg bg-white text-center text-[var(--tosca-dark)] fade-in delay-300">
+          <div class="text-3xl font-bold">30K</div>
+          <div class="text-sm mt-1">Pengunjung</div>
+        </div>
+        <div class="p-4 rounded-lg bg-white text-center text-[var(--tosca-dark)] fade-in delay-400">
+          <div class="text-3xl font-bold">5</div>
+          <div class="text-sm mt-1">Hari Acara</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aside -->
+    <aside class="p-6 rounded-2xl border-2 border-[var(--accent-orange)] bg-white mx-auto fade-in delay-500">
+      <h4 class="font-semibold text-[var(--tosca-dark)]">Manfaat Multi-Stakeholder</h4>
+      <ul class="mt-3 text-sm text-slate-600 space-y-2">
+        <li>• Pemerintah: memperkuat ekonomi syariah nasional.</li>
+        <li>• Dunia Usaha: peluang pasar & kemitraan.</li>
+        <li>• Masyarakat: akses literasi & produk halal.</li>
+        <li>• Internasional: platform diplomasi & peradaban.</li>
+      </ul>
+    </aside>
+
+  </div>
+  </section>
+
+  <!-- KONTAK -->
+  <section id="kontak" class="max-w-6xl mx-auto px-6 py-12 fade-in">
+    <div class="p-8 rounded-2xl border-2 border-[var(--accent-orange)] bg-white grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h3 class="text-2xl font-semibold text-[var(--tosca-dark)]">Ingin Berkolaborasi / Info Lebih Lanjut?</h3>
+        <p class="mt-3 text-slate-600">Hubungi panitia untuk pendaftaran tenant, sponsorship, atau kemitraan organisasi.</p>
+        <div class="mt-4 space-y-2 text-sm text-slate-700">
+          <div>Joe Rian: <a href="tel:+6281388181442" class="text-[var(--accent-orange)]">0813 8818 1442</a></div>
+          <div>Juliantiqo: <a href="tel:+6281288886848" class="text-[var(--accent-orange)]">+62 812-8889-6848</a></div>
+          <div>Cahyo: <a href="tel:+6281210981945" class="text-[var(--accent-orange)]">+62 812-1098-1945</a></div>
+        </div>
+      </div>
+      <form class="space-y-4">
+        <input class="w-full px-4 py-3 rounded-md border border-[var(--tosca-dark)]" placeholder="Nama" />
+        <input class="w-full px-4 py-3 rounded-md border border-[var(--tosca-dark)]" placeholder="Email" />
+        <textarea class="w-full px-4 py-3 rounded-md border border-[var(--tosca-dark)]" rows="4" placeholder="Pesan / Permintaan"></textarea>
+        <div class="flex justify-end">
+          <button type="submit" class="px-5 py-2 rounded-md bg-[var(--accent-orange)] text-white font-semibold">Kirim Pesan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 mt-8 fade-in">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-sm text-slate-600">© 2025 Rumah Peradaban Bangsa • INRA EXPO</div>
+      <div class="text-sm text-slate-600">Didukung oleh Pemerintah & Mitra Nasional & Internasional</div>
+    </div>
+  </footer>
+
+
+  <script>
+  // Smooth scroll (sudah ada)
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Fade-in (sudah ada)
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // 🔥 Toggle dropdown mobile
+  const menuBtn = document.getElementById("menu-btn");
+  const menuDropdown = document.getElementById("menu-dropdown");
+
+  menuBtn.addEventListener("click", () => {
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  // Optional: auto-close dropdown setelah klik link
+  menuDropdown.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      menuDropdown.classList.add("hidden");
+    });
+  });
+  </script>
+</body>
+</html>
