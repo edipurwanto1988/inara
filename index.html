@@ -266,7 +266,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('./img/Picture9.png');
+      background-image: url('./img/Picture9.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -343,7 +343,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image: url('./img/Picture8.png');
+      background-image: url('./img/Picture8.jpg');
       background-size: cover;
       background-position: center;
       opacity: 0.2;
@@ -430,6 +430,39 @@
         font-size: 0.8rem;
       }
     }
+
+    /* Lazy Loading Styles */
+    .lazy {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .lazy.loaded {
+      opacity: 1;
+    }
+
+    .lazy-placeholder {
+      background-color: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .lazy-spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid var(--accent-orange);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body class="min-h-screen bg-white text-slate-800">
@@ -473,7 +506,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="w-full border-y-4 border-[var(--accent-orange)] fade-in bg-[url('./img/Picture9.png')] bg-cover">
+  <section class="w-full border-y-4 border-[var(--accent-orange)] fade-in bg-[url('./img/Picture9.jpg')] bg-cover">
     <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center gap-10 ">
       <div class="flex-1">
         <h1 class="text-4xl md:text-5xl font-bold leading-tight text-white">INRA EXPO 2025</h1>
@@ -501,7 +534,7 @@
       </div>
       <div class="flex-1 max-w-md p-6">
         <div class="rounded-2xl overflow-hidden shadow-xl p-6 border-2 border-[var(--tosca-dark)] bg-white">
-          <div class="h-48 rounded-xl bg-[url('./img/Picture3.png')] bg-cover bg-center flex items-center justify-center">
+          <div class="h-48 rounded-xl bg-[url('./img/Picture3.jpg')] bg-cover bg-center flex items-center justify-center">
             <div class="text-center">
               <div class="text-black font-bold text-2xl">Momentum Bersejarah</div>
               <p class="mt-2 text-black/90">Menuju Indonesia International Muslim Fair 2026</p>
@@ -737,7 +770,7 @@
   </section>
 
   <!-- KONTAK -->
-  <section id="kontak" class="max-w-6xl mx-auto px-6 py-12 fade-in bg-[url('./img/Picture1.png')] bg-cover bg-center relative">
+  <section id="kontak" class="max-w-6xl mx-auto px-6 py-12 fade-in bg-[url('./img/Picture1.jpg')] bg-cover bg-center relative">
     <div class="absolute inset-0 bg-gradient-to-r from-[var(--tosca-dark)]/90 to-[var(--tosca-dark)]/70 rounded-3xl"></div>
     <div class="relative p-8 rounded-2xl border-2 border-[var(--accent-orange)] bg-white/90 backdrop-blur-sm grid md:grid-cols-2 gap-6 items-center shadow-2xl">
       <div>
@@ -1028,6 +1061,105 @@
   
   // Initial call to display the countdown immediately
   updateCountdown();
+
+  // Lazy Loading Implementation
+  document.addEventListener("DOMContentLoaded", function() {
+    // Lazy load images
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    
+    if ("IntersectionObserver" in window) {
+      const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const lazyImage = entry.target;
+            
+            // Create a placeholder if needed
+            if (!lazyImage.complete) {
+              lazyImage.classList.add("lazy-placeholder");
+              lazyImage.innerHTML = '<div class="lazy-spinner"></div>';
+            }
+            
+            lazyImage.onload = function() {
+              lazyImage.classList.remove("lazy-placeholder");
+              lazyImage.classList.add("loaded");
+            };
+            
+            lazyImage.src = lazyImage.dataset.src;
+            if (lazyImage.dataset.srcset) {
+              lazyImage.srcset = lazyImage.dataset.srcset;
+            }
+            
+            lazyImage.classList.remove("lazy");
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers that don't support Intersection Observer
+      let active = false;
+
+      const lazyLoad = function() {
+        if (active === false) {
+          active = true;
+
+          setTimeout(function() {
+            lazyImages.forEach(function(lazyImage) {
+              if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+                lazyImage.src = lazyImage.dataset.src;
+                if (lazyImage.dataset.srcset) {
+                  lazyImage.srcset = lazyImage.dataset.srcset;
+                }
+                
+                lazyImage.classList.remove("lazy");
+                lazyImage.classList.add("loaded");
+
+                lazyImages = lazyImages.filter(function(image) {
+                  return image !== lazyImage;
+                });
+
+                if (lazyImages.length === 0) {
+                  document.removeEventListener("scroll", lazyLoad);
+                  window.removeEventListener("resize", lazyLoad);
+                  window.removeEventListener("orientationchange", lazyLoad);
+                }
+              }
+            });
+
+            active = false;
+          }, 200);
+        }
+      };
+
+      document.addEventListener("scroll", lazyLoad);
+      window.addEventListener("resize", lazyLoad);
+      window.addEventListener("orientationchange", lazyLoad);
+      lazyLoad();
+    }
+
+    // Lazy load background images
+    const lazyBackgrounds = [].slice.call(document.querySelectorAll("[data-bg]"));
+    
+    if ("IntersectionObserver" in window) {
+      const lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            const lazyBackground = entry.target;
+            lazyBackground.style.backgroundImage = 'url(' + lazyBackground.dataset.bg + ')';
+            lazyBackground.classList.add("loaded");
+            lazyBackgroundObserver.unobserve(lazyBackground);
+          }
+        });
+      });
+
+      lazyBackgrounds.forEach(function(lazyBackground) {
+        lazyBackgroundObserver.observe(lazyBackground);
+      });
+    }
+  });
   </script>
 </body>
 </html>
